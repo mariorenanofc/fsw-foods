@@ -120,17 +120,13 @@ const ProductDetails = ({
 
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-2 text-muted-foreground">
-              <span className="text-xs">Entrega</span>
+              <span className="text-xs">Tempo</span>
               <TimerIcon size={14} />
             </div>
 
-            {Number(product.restaurant.deliveryFee) > 0 ? (
-              <p className="front-semibold text-xs">
-                {formatCurrency(Number(product.restaurant.deliveryFee))}
-              </p>
-            ) : (
-              <p>Gratis</p>
-            )}
+            <p className="front-semibold text-xs">
+              {product.restaurant.deliveryTimeMinutes} min
+            </p>
           </div>
         </Card>
       </div>
