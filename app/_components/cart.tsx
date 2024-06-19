@@ -67,10 +67,10 @@ const Cart = () => {
       ) : (
         <div className="flex h-full flex-col items-center justify-center">
           <div className="flex flex-col space-y-2">
-            <Skeleton className="h-[125px] w-[150px] rounded-xl bg-red-100" />
+            <Skeleton className="h-[125px] w-[150px] rounded-xl bg-gray-200" />
             <div className="space-y-2">
-              <Skeleton className="h-4 w-[150px] bg-red-100" />
-              <Skeleton className="h-4 w-[100px] bg-red-100" />
+              <Skeleton className="h-4 w-[150px] bg-gray-200" />
+              <Skeleton className="h-4 w-[100px] bg-gray-200" />
             </div>
           </div>
           <h2 className="mt-1 text-center font-medium">
