@@ -50,6 +50,14 @@ const Cart = () => {
         user: {
           connect: { id: data.user.id },
         },
+        products: {
+          createMany: {
+            data: products.map((product) => ({
+              productId: product.id,
+              quantity: product.quantity,
+            })),
+          },
+        },
       });
       clearCart();
     } catch (error) {
@@ -143,20 +151,21 @@ const Cart = () => {
       >
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Deseja finalizar seu Pedido?</AlertDialogTitle>
+            <AlertDialogTitle>Deseja finalizar seu pedido?</AlertDialogTitle>
             <AlertDialogDescription>
-              Ao finaliar seu pedido ele será enviado para o WhatsApp da empresa
-              com a condição de confirmação!
+              Ao finalizar seu pedido, ele sera enviado para o Whatsapp da
+              empresa com a condição de confirmação.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel disabled={isConfirmDialogOpen}>
+            <AlertDialogCancel>Cancelar</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleFinishOrderClick}
+              disabled={isSubmitLoading}
+            >
               {isSubmitLoading && (
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               )}
-              Cancelar
-            </AlertDialogCancel>
-            <AlertDialogAction onClick={handleFinishOrderClick}>
               Finalizar
             </AlertDialogAction>
           </AlertDialogFooter>
